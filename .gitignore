@@ -142,3 +142,8 @@ node_modules
 # JSON generation
 fixtures/
 state-files/
+
+# UI Smoke Automation unnecessary files
+tests/uiautomation/reports/
+tests/uiautomation/.idea
+tests/uiautomation/target
