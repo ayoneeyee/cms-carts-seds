@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import org.hamcrest.Condition;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -49,6 +50,8 @@ public class ITestExecutionListener implements ITestListener {
     public void onTestFailure(ITestResult result) {
         // TODO: implement screenshot capture code
         testCaseSection.fail("Test execution resulted in failure");
+        String erroMsg = result.getThrowable().getMessage();
+        Steps.logError(erroMsg);
         Steps.imgLog("failed");
     }
 

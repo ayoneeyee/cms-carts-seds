@@ -11,7 +11,7 @@ import utility.Steps;
 public class DemoTest extends BaseTest {
 
     // DONE
-    @Test(description = "Verify Section 2: Eligibility and Enrollment contents", priority = 3)
+    //@Test(description = "Verify Section 2: Eligibility and Enrollment contents", priority = 3)
     public void verify_section_2() {
         SignInPage signIn = new SignInPage();
         signIn.open();
@@ -33,7 +33,7 @@ public class DemoTest extends BaseTest {
     }
 
 
-    @Test(priority = 4)
+    //@Test(priority = 4)
     public void verify_section_3a() {
         SignInPage signIn = new SignInPage();
         signIn.open();
@@ -54,7 +54,7 @@ public class DemoTest extends BaseTest {
     }
 
 
-    @Test(priority = 5)
+    //@Test(priority = 5)
     public void verify_section_3b() {
         SignInPage signIn = new SignInPage();
         signIn.open();

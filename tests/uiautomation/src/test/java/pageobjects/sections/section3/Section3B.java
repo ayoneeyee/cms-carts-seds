@@ -20,7 +20,7 @@ public class Section3B extends UIActions {
     private By option2_no = css("[for='radio_2020-03-b-01-02_32']");
     private By option2_na = css("[for='radio_2020-03-b-01-02_33']");
 
-    private By option3_text = css("textarea[name='2020-03-b-01-03']");
+    private By option3_text = css("input[name='2020-03-b-01-03']");
 
     private By option5_text = css("textarea[name='2020-03-b-01-05']");
 

@@ -21,6 +21,10 @@ public class Steps {
         testcase.info(message);
     }
 
+    public static void logError(String message) {
+        testcase.error(message);
+    }
+
 
     public static void imgLog(String message) {
         String screenshot = ((TakesScreenshot) UIActions.driver).getScreenshotAs(OutputType.BASE64);

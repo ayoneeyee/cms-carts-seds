@@ -51,5 +51,4 @@ public class Section3H extends UIActions {
         }
         return true;
     }
-
 }

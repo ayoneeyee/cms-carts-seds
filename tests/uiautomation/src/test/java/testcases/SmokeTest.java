@@ -13,7 +13,7 @@ public class SmokeTest extends BaseTest {
 
 
     // ========== Automated test cases  ============//
-    //@Test(description = "Verify that user can login to CARTS with valid credential")
+    ////@Test(description = "Verify that user can login to CARTS with valid credential")
     public void verify_user_login() {
        
         // Test Step - Automation code
@@ -29,7 +29,7 @@ public class SmokeTest extends BaseTest {
     }
 
 
-    //@Test(description = "Verify the home page content and edit link")
+    ////@Test(description = "Verify the home page content and edit link")
     public void verify_homepage() {
       
         // Test Step - Automation code
@@ -50,8 +50,7 @@ public class SmokeTest extends BaseTest {
     }
 
 
-    @Test(description = "Verify Carts Basic Info page contents",
-    priority = 1)
+    @Test(description = "Verify Carts Basic Info page contents",priority = 1)
     public void verify_basic_info_page() {
        
         // Test Step - Automation code
