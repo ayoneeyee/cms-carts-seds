@@ -63,10 +63,15 @@ public class DemoTest extends BaseTest {
         Section3B section3b = new Section3B();
         SoftAssert asserts = new SoftAssert();
         asserts.assertTrue(section3b.verifyOption1());
+        Steps.log("Verifying Option 1 is presented and functional on the page");
         asserts.assertTrue(section3b.verifyOption2());
+        Steps.log("Verifying Option 2 is presented and functional on the page");
         asserts.assertTrue(section3b.verifyOption3());
+        Steps.log("Verifying Option 3 is presented and functional on the page");
         asserts.assertTrue(section3b.verifyOption5());
+        Steps.log("Verifying Option 4 is presented and functional on the page");
         asserts.assertTrue(section3b.verifyOption6());
+        Steps.log("Verifying Option 5 is presented and functional on the page");
         asserts.assertAll();
     }
 }

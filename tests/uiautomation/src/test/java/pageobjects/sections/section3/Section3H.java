@@ -12,7 +12,6 @@ public class Section3H extends UIActions {
     private By file_upload = css("[type='file']");
     private By all_radio_button = xpath("//label[contains(@for, 'radio')]");
     private By all_checkboxes = xpath("//label[contains(@for, 'checkbox')]");
-    private By input_text = xpath("//input[@type='text']");
     private By textarea = css("textarea[name='2020-03-h-03-02']");
 
 
@@ -21,9 +20,8 @@ public class Section3H extends UIActions {
     }
 
     public boolean verifyInputAndTexts() {
-        boolean ret1 = elementIsVisibleToUser(input_text);
-        boolean ret2 = elementIsVisibleToUser(textarea);
-        return ret1 && ret2;
+        boolean ret = elementIsVisibleToUser(textarea);
+        return ret;
     }
 
     public boolean verifyAllRadioButton() {
