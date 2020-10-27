@@ -84,7 +84,6 @@ public class SmokeTest extends BaseTest {
         signInPage.open();
         signInPage.gotoSection1();
 
-
         Section1Page section1 = new Section1Page();
         SoftAssert asserts = new SoftAssert();
         asserts.assertTrue(section1.verifyAllCheckboxButton());
