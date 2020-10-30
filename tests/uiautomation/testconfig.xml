@@ -22,6 +22,14 @@
             <class name="testcases.DemoTest"/>
         </classes>
     </test>
+
+
+    <test name="Fix">
+        <classes>
+            <class name="testcases.FixTest"/>
+        </classes>
+    </test>
+
 </suite>
 
 

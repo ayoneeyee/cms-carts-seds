@@ -1,7 +1,12 @@
 package pageobjects.sections;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import utility.UIActions;
+
+import java.util.List;
 
 public class BasicStateInformationPage extends UIActions {
 
@@ -20,6 +25,7 @@ public class BasicStateInformationPage extends UIActions {
     private final By disclosures = css(".main .question:nth-child(7) .question:nth-child(7) .ds-c-field__hint");
 
     private final By next_button = css("[type='submit']");
+    private final By diabled_elements = xpath("//input[@disabled]");
 
     //=== List of methods that represents user's action in this page ===//
 
@@ -32,11 +38,8 @@ public class BasicStateInformationPage extends UIActions {
     }
 
     public boolean verifyDisabledContents() {
-       boolean result1 = elementIsDisabled(state_territory_name_input);
-       boolean result2 = elementIsDisabled(program_type);
-       scrollToView(chip_program_names);
-       boolean result3 = elementIsDisabled(chip_program_names);
-       return result1 && result2 && result3;
+        List<WebElement> elems = getWait().until(ExpectedConditions.presenceOfAllElementsLocatedBy(diabled_elements));
+        return (elems.size() > 0);
     }
 
     public boolean verifyEditableContents() {

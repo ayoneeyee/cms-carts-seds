@@ -3,7 +3,7 @@ package testcases;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pageobjects.SignInPage;
-import pageobjects.sections.Section2Page;
+import pageobjects.sections.Section1Page;
 import pageobjects.sections.section3.Section3A;
 import pageobjects.sections.section3.Section3B;
 import utility.Steps;
@@ -11,29 +11,27 @@ import utility.Steps;
 public class DemoTest extends BaseTest {
 
     // DONE
-    @Test(description = "Verify Section 2: Eligibility and Enrollment contents", priority = 3)
-    public void verify_section_2() {
-        SignInPage signIn = new SignInPage();
-        signIn.open();
-        signIn.gotoSection2();
+    @Test(description = "Verify Section 1: Program Fees and Policy Changes contents", priority = 1)
+    public void verify_section_1() {
 
-        Section2Page section2 = new Section2Page();
+        // Test Step - Automation code
+        SignInPage signInPage = new SignInPage();
+        signInPage.open();
+        signInPage.gotoSection1();
 
+        Section1Page section1 = new Section1Page();
         SoftAssert asserts = new SoftAssert();
-        asserts.assertTrue(section2.isTablePresent());
-        asserts.assertTrue(section2.isEnrollmentNumTxtboxPresent());
-        asserts.assertTrue(section2.isNumUninsuredChildTablePresent());
-        asserts.assertTrue(section2.isPercentChangeIsPresent());
-        asserts.assertTrue(section2.isReasonNumUninsuredChangedPresent());
-        asserts.assertTrue(section2.isOption2RadioButtonWorks());
-        asserts.assertTrue(section2.isOption3RadioButtonWorks());
-        asserts.assertTrue(section2.textbox4IsPresent());
-        asserts.assertTrue(section2.fileUploadIsPresent());
+        asserts.assertTrue(section1.verifyAllCheckboxButton());
+        Steps.log("Verifying the checkboxes are presented and selectable on the page");
+        asserts.assertTrue(section1.verifyAllRadioButton());
+        Steps.log("Verifying radio buttons are presented and clickable on the page");
+        asserts.assertTrue(section1.verifyAllTextArea());
+        Steps.log("Verifying text areas are presented and editable on the page");
         asserts.assertAll();
     }
 
 
-    @Test(priority = 4)
+    @Test(priority = 2)
     public void verify_section_3a() {
         SignInPage signIn = new SignInPage();
         signIn.open();
@@ -54,7 +52,7 @@ public class DemoTest extends BaseTest {
     }
 
 
-    @Test(priority = 5)
+    @Test(priority = 3)
     public void verify_section_3b() {
         SignInPage signIn = new SignInPage();
         signIn.open();
@@ -63,7 +61,7 @@ public class DemoTest extends BaseTest {
         Section3B section3b = new Section3B();
         SoftAssert asserts = new SoftAssert();
         asserts.assertTrue(section3b.verifyOption1());   // correct
-       // asserts.assertFalse(section3b.verifyOption1(), "Section 3B: Option 1 Verifications has failed");     // faulty on purpose
+        //asserts.assertFalse(section3b.verifyOption1(), "Section 3B: Option 1 Verifications has failed");     // faulty on purpose
         Steps.log("Verifying Option 1 is presented and functional on the page");
         asserts.assertTrue(section3b.verifyOption2());
         Steps.log("Verifying Option 2 is presented and functional on the page");

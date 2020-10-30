@@ -22,7 +22,7 @@ public class Section2Page extends UIActions {
     private final By option_3_yes = css("[for='radio_2020-02-a-02-03_34']");
     private final By textbox_3a = css("textarea[name='2020-02-a-02-03-a']");
     private final By start_day = css(".date-range-start-wrapper");
-    private final By end_day = css(".date-range > .date-range-end-wrapper");
+    //private final By end_day = css(".date-range > .date-range-end-wrapper");
     private final By textbox_3c = css("textarea[name='2020-02-a-02-03-c']");
     private final By textbox_3d = css("textarea[name='2020-02-a-02-03-d']");
     private final By textbox_3e = css("textarea[name='2020-02-a-02-03-e']");
@@ -79,7 +79,7 @@ public class Section2Page extends UIActions {
         click(option_3_yes);
         boolean ret2 = elementIsEanbled(textbox_3a);
         boolean ret3 = elementIsVisibleToUser(start_day);
-        boolean ret4 = elementIsVisibleToUser(end_day);
+        //boolean ret4 = elementIsVisibleToUser(end_day);
         boolean ret5 = elementIsEanbled(textbox_3c);
         scrollToView(textbox_3d);
         waitformili(400);
@@ -90,7 +90,7 @@ public class Section2Page extends UIActions {
         boolean ret10 = elementIsEanbled(textbox_3h);
         boolean ret11 = elementIsEanbled(option_3_no);
         click(option_3_no);
-        return ret1 && ret2 && ret3 && ret4 && ret5 &&
+        return ret1 && ret2 && ret3 && ret5 &&
                 ret6 && ret7 && ret8 && ret9 && ret10 &&
                 ret11;
     }

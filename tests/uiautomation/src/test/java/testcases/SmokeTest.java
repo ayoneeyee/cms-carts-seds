@@ -52,7 +52,7 @@ public class SmokeTest extends BaseTest {
 
     @Test(description = "Verify Carts Basic Info page contents",priority = 1)
     public void verify_basic_info_page() {
-       
+
         // Test Step - Automation code
         SignInPage signInPage = new SignInPage();
         signInPage.open();
@@ -62,15 +62,15 @@ public class SmokeTest extends BaseTest {
 
         // Test Assertion - Verify
         SoftAssert asserts = new SoftAssert();
-        asserts.assertTrue(infoPage.welcomeBannerIsThere());
+        asserts.assertTrue(infoPage.welcomeBannerIsThere(),"Welcome banner verification failed");
         Steps.log("Verifying the Welcome banner is on the page");
-        asserts.assertTrue(infoPage.helpDeskLinkIsThere());
+        asserts.assertTrue(infoPage.helpDeskLinkIsThere(), "Help desk link verification failed");
         Steps.log("Verifying help desk link is on the page");
-        asserts.assertTrue(infoPage.verifyDisabledContents());
+        asserts.assertTrue(infoPage.verifyDisabledContents(),"Disabled content verification failed");
         Steps.log("Verifying disabled contents are disabled on the page");
-        asserts.assertTrue(infoPage.verifyEditableContents());
+        asserts.assertTrue(infoPage.verifyEditableContents(),"Editable content verification failed");
         Steps.log("Verifying the editable contents are changeable on the page");
-        asserts.assertTrue(infoPage.disclosureStatementIsThere());
+        asserts.assertTrue(infoPage.disclosureStatementIsThere(),"Disclosure statements verification failed");
         Steps.log("Verifying disclosure statement is on the page");
         asserts.assertAll();
     }
@@ -103,6 +103,7 @@ public class SmokeTest extends BaseTest {
         signIn.open();
         signIn.gotoSection2();
 
+        // .date-range > .date-range-end-wrapper
 
         Section2Page section2 = new Section2Page();
 
@@ -286,7 +287,6 @@ public class SmokeTest extends BaseTest {
     }
 
 
-    // TODO: Implement this test case
     @Test(priority = 13)
     public void verify_section4() {
         SignInPage signIn = new SignInPage();
@@ -295,13 +295,14 @@ public class SmokeTest extends BaseTest {
 
         Section4Page section4 = new Section4Page();
         SoftAssert asserts = new SoftAssert();
-        asserts.assertTrue(section4.verifyAllTextInputs());
+
+        asserts.assertTrue(section4.verifyAllTextInputs(),"Unable to verify all text inputs");
         Steps.log("Verifying all input texts are presented and editable on the page");
-        asserts.assertTrue(section4.verifyAllTextareas());
+        asserts.assertTrue(section4.verifyAllTextareas(),"Unable to verify all text areas");
         Steps.log("Verifying all text areas are presented and editable on the page");
-        asserts.assertTrue(section4.verifyAllRadioButtons());
+        asserts.assertTrue(section4.verifyAllRadioButtons(), "Unable to verify all radio buttons");
         Steps.log("Verifying radio options are presented and functional on the page");
-        asserts.assertTrue(section4.verifyAllFileUploads());
+        asserts.assertTrue(section4.verifyAllFileUploads(), "Unable to verify all file uploads");
         Steps.log("Verifying the file upload are presented and functional on the page");
         asserts.assertAll();
     }

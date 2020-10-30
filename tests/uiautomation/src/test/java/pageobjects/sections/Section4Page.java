@@ -2,6 +2,8 @@ package pageobjects.sections;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import utility.UIActions;
 
 import java.util.ArrayList;
@@ -29,7 +31,9 @@ public class Section4Page extends UIActions {
 
 
     public boolean verifyAllFileUploads() {
-        return isAllEnabled(file_uploads);
+        int elemCount = getWait().until(ExpectedConditions.presenceOfAllElementsLocatedBy(file_uploads)).size();
+        // There are 7 disabled file inputs in the page
+        return (elemCount == 7);
     }
 
 

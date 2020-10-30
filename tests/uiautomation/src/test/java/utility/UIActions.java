@@ -25,6 +25,10 @@ public class UIActions {
 
     }
 
+    public WebDriverWait getWait() {
+        return wait;
+    }
+
     // =========== WAIT LOGIC ================//
     public WebElement elementIsVisibleToUser(WebElement element) {
         return wait.until(ExpectedConditions.visibilityOf(element));
