@@ -6,7 +6,7 @@ import utility.UIActions;
 
 public class Section3G extends UIActions {
 
-    private By dental_benefit = css(".main div:nth-child(3) > h2:nth-of-type(1)");
+    private By dental_benefit = css(".main div:nth-child(4) .screen-only");
 
     public boolean verifySection3G() {
         return elementIsVisibleToUser(dental_benefit);

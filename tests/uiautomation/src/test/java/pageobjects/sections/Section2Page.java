@@ -8,7 +8,7 @@ import utility.UIActions;
 public class Section2Page extends UIActions {
     //=== List of elements user interacts in this page ====//
     private final By programs_table = css(".main div:nth-child(2) .question:nth-child(2)");
-    private final By enrollement_numbers_txtbox = css(".main div:nth-child(3) > div:nth-child(2) [rows]");
+    private final By enrollement_numbers_txtbox = css("textarea[name='2020-02-a-01-01']");
     private final By num_uninsured_child_table = css(".main .question:nth-child(2) [class='ds-c-table ds-u-margin-top--2']");
     private final By percent_change = id("synthesized-table-1");
     private final By reason_num_uninsured_child_changed = css(".main .question:nth-child(4) [rows]");
