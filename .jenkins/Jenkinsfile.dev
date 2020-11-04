@@ -170,6 +170,17 @@ pipeline {
       }
     }
 
+    stage("ui automation test"){
+      when {
+        expression { env.RUN_TESTS == "true"}
+      }
+      steps {
+        dir('tests/uiautomation') {
+          sh 'mvn test -DtestType="Smoke"'
+        }
+      }
+    }
+
     stage("Test") {
       when {
         expression { env.RUN_TESTS == "true"}
