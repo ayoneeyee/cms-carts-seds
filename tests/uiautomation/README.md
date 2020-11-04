@@ -27,7 +27,7 @@ command based cross browser testing capabilities enabled by maven system propert
 
 ## Set-up Instructions 
 You need to have following test execution set up 
-![screenshot](/images/test_execution_setup.png)
+![screenshot](/tests/uiautomation/images/test_execution_setup.png)
 
 ## How to write Test Cases 
 
