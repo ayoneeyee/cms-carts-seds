@@ -175,7 +175,7 @@ pipeline {
 
     stage("ui automation test"){
       when {
-        expression { env.RUN_TESTS == "true"}
+        expression { env.DEPLOY == "true"}
       }
       steps {
         dir('tests/uiautomation') {
