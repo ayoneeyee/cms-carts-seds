@@ -179,7 +179,7 @@ pipeline {
       }
       steps {
         dir('tests/uiautomation') {
-          sh 'mvn test -DtestType="Smoke"'
+          sh 'mvn test'
         }
       }
     }
