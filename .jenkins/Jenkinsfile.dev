@@ -183,7 +183,7 @@ pipeline {
           mvn --version
         """
         dir('tests/uiautomation') {
-          sh 'mvn test'
+          sh 'mvn test -Dport=3000'
         }
       }
     }
