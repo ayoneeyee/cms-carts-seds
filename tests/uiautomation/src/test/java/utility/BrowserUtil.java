@@ -4,20 +4,42 @@ package utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.io.File;
+import java.io.IOException;
 
 public class BrowserUtil {
 
     private static WebDriver driver;
+    private static ChromeDriverService driverService;
 
     /**
      * Static method that opens chrome browser
      * for the user
      */
     public static void openBrowser() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+       // WebDriverManager.chromedriver().setup();
+        int portNumber = Integer.valueOf(System.getProperty("port"));
+        System.out.println("We got the port number: " + portNumber);
+        String driverPath = System.getProperty("user.dir") + "/drivers/chromedriver";
+        driverService = new ChromeDriverService.Builder()
+                .usingDriverExecutable(new File(driverPath))
+                .usingPort(portNumber)
+                .build();
+
+        try {
+            driverService.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+//        driver = new ChromeDriver();
+        driver = new RemoteWebDriver(driverService.getUrl(), new ChromeOptions());
         driver.manage().window().maximize();
     }
 
@@ -50,6 +72,7 @@ public class BrowserUtil {
         if (driver != null) {
             driver.close();
             driver.quit();
+            driverService.stop();
         }
     }
 
