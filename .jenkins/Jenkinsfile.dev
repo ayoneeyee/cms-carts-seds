@@ -181,7 +181,6 @@ pipeline {
         sh """
           curl localhost:3000
           mvn --version
-          find / -name chromedriver
         """
         dir('tests/uiautomation') {
           sh 'mvn test'
