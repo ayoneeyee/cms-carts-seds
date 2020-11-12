@@ -180,6 +180,7 @@ pipeline {
       steps {
         sh """
           curl localhost:3000
+          mvn --version
         """
         dir('tests/uiautomation') {
           sh 'mvn test'
