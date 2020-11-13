@@ -11,7 +11,7 @@ import utility.Steps;
 public class DemoTest extends BaseTest {
 
     // DONE
-    @Test(description = "Verify Section 1: Program Fees and Policy Changes contents", priority = 1)
+   // @Test(description = "Verify Section 1: Program Fees and Policy Changes contents", priority = 1)
     public void verify_section_1() {
 
         // Test Step - Automation code
@@ -31,7 +31,7 @@ public class DemoTest extends BaseTest {
     }
 
 
-    @Test(priority = 2)
+   // @Test(priority = 2)
     public void verify_section_3a() {
         SignInPage signIn = new SignInPage();
         signIn.open();

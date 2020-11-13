@@ -36,7 +36,7 @@ public class ITestExecutionListener implements ITestListener {
     public void onTestStart(ITestResult result) {
         // creates test section in report
         testCaseSection = extent.createTest(result.getName());
-        Steps.init(testCaseSection);
+ //       Steps.init(testCaseSection);
         String testCaseDescription = result.getMethod().getDescription();
         testCaseSection.info("Test Case Name: " + testCaseDescription);
     }
@@ -44,20 +44,20 @@ public class ITestExecutionListener implements ITestListener {
     // for each test cases results
     public void onTestSuccess(ITestResult result) {
         testCaseSection.pass("Test Case Passed");
-        Steps.imgLog("Success");
+   //     Steps.imgLog("Success");
     }
 
     public void onTestFailure(ITestResult result) {
         // TODO: implement screenshot capture code
         testCaseSection.fail("Test execution resulted in failure");
         String erroMsg = result.getThrowable().getMessage();
-        Steps.logError(erroMsg);
-        Steps.imgLog("failed");
+ //       Steps.logError(erroMsg);
+//        Steps.imgLog("failed");
     }
 
     public void onTestSkipped(ITestResult result) {
         testCaseSection.skip("Test execution was skipped");
-        Steps.imgLog("skipped");
+  //      Steps.imgLog("skipped");
     }
 
     public void onTestFailedWithTimeout(ITestResult result) {

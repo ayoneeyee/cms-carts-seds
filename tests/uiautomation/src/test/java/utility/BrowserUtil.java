@@ -32,13 +32,14 @@ public class BrowserUtil {
                 .usingPort(portNumber)
                 .build();
 
+        System.out.println("GET URL: " + driverService.getUrl());
+
         try {
             driverService.start();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-//        driver = new ChromeDriver();
         driver = new RemoteWebDriver(driverService.getUrl(), new ChromeOptions());
         driver.manage().window().maximize();
     }
