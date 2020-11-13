@@ -178,12 +178,8 @@ pipeline {
         expression { env.RUN_TESTS == "true"}
       }
       steps {
-        sh """
-          curl localhost:3000
-          mvn --version
-        """
         dir('tests/uiautomation') {
-          sh 'mvn test'
+          sh 'mvn test -Dport=3000'
         }
       }
     }
