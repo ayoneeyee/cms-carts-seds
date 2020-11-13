@@ -62,15 +62,15 @@ public class DemoTest extends BaseTest {
         SoftAssert asserts = new SoftAssert();
         asserts.assertTrue(section3b.verifyOption1());   // correct
         //asserts.assertFalse(section3b.verifyOption1(), "Section 3B: Option 1 Verifications has failed");     // faulty on purpose
-        Steps.log("Verifying Option 1 is presented and functional on the page");
+        //Steps.log("Verifying Option 1 is presented and functional on the page");
         asserts.assertTrue(section3b.verifyOption2());
-        Steps.log("Verifying Option 2 is presented and functional on the page");
+       // Steps.log("Verifying Option 2 is presented and functional on the page");
         asserts.assertTrue(section3b.verifyOption3());
-        Steps.log("Verifying Option 3 is presented and functional on the page");
+       // Steps.log("Verifying Option 3 is presented and functional on the page");
         asserts.assertTrue(section3b.verifyOption5());
-        Steps.log("Verifying Option 4 is presented and functional on the page");
+       // Steps.log("Verifying Option 4 is presented and functional on the page");
         asserts.assertTrue(section3b.verifyOption6());
-        Steps.log("Verifying Option 5 is presented and functional on the page");
+        //Steps.log("Verifying Option 5 is presented and functional on the page");
         asserts.assertAll();
     }
 }
