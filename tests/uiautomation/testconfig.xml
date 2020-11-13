@@ -10,18 +10,18 @@
     <!-- type of test we have in our framework -->
     <!-- we have : Smoke test -->
     <!-- All the test cases in SmokeTest.java belongs to this test called Smoke" -->
-<!--    <test name="Smoke">-->
-<!--        <classes>-->
-<!--            <class name="testcases.SmokeTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
-
-
-    <test name="Demo">
+    <test name="Smoke">
         <classes>
-            <class name="testcases.DemoTest"/>
+            <class name="testcases.SmokeTest"/>
         </classes>
     </test>
+
+
+<!--    <test name="Demo">-->
+<!--        <classes>-->
+<!--            <class name="testcases.DemoTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 
 <!--    <test name="Fix">-->
