@@ -142,3 +142,8 @@ node_modules
 # JSON generation
 fixtures/
 state-files/
+
+# Automated Testing -- .\tests
+!tests/*.md
+tests/*.xml
+tests/*.log
