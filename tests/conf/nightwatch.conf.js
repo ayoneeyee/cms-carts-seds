@@ -35,6 +35,20 @@ module.exports = {
             }
         },
 
+        firefox : {
+            desiredCapabilities: {
+                browserName: 'firefox'
+            },
+
+            webdriver: {
+                start_process: true,
+                server_path: Services.geckodriver.path,
+                port: 9516,
+                log_path: false,
+                cli_args: []
+            }
+        }
+
     }
 };
 function loadServices() {
