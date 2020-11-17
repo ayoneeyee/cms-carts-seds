@@ -6,10 +6,10 @@ const Services ={}; loadServices();
 module.exports = {
     // An array of folders (excluding subfolders) where your tests are located;
     // if this is not specified, the test source must be passed as the second argument to the test runner.
-    src_folders: './tests/cases/carts',
+    src_folders: './tests/cases',
 
     // See https://nightwatchjs.org/guide/working-with-page-objects/
-    page_objects_path: './tests/page_objects/carts',
+    page_objects_path: './tests/page_objects',
 
     // See https://nightwatchjs.org/guide/extending-nightwatch/#writing-custom-commands
     custom_commands_path: '',
