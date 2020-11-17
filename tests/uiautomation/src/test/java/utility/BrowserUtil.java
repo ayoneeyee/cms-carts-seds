@@ -12,6 +12,10 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+import java.rmi.server.ExportException;
 
 public class BrowserUtil {
 
@@ -22,25 +26,52 @@ public class BrowserUtil {
      * Static method that opens chrome browser
      * for the user
      */
+//    public static void openBrowser() {
+//       // WebDriverManager.chromedriver().setup();
+//        int portNumber = Integer.valueOf(System.getProperty("port"));
+//        System.out.println("We got the port number: " + portNumber);
+//        String driverPath = System.getProperty("user.dir") + "/drivers/chromedriver";
+//        driverService = new ChromeDriverService.Builder()
+//                .usingDriverExecutable(new File(driverPath))
+//                .usingPort(portNumber)
+//                .build();
+//
+//        System.out.println("GET URL: " + driverService.getUrl());
+//
+//        try {
+//            driverService.start();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        driver = new RemoteWebDriver(driverService.getUrl(), new ChromeOptions());
+//        driver.manage().window().maximize();
+//    }
     public static void openBrowser() {
-       // WebDriverManager.chromedriver().setup();
-        int portNumber = Integer.valueOf(System.getProperty("port"));
-        System.out.println("We got the port number: " + portNumber);
-        String driverPath = System.getProperty("user.dir") + "/drivers/chromedriver";
-        driverService = new ChromeDriverService.Builder()
-                .usingDriverExecutable(new File(driverPath))
-                .usingPort(portNumber)
-                .build();
+        // WebDriverManager.chromedriver().setup();
+       // int portNumber = Integer.valueOf(System.getProperty("port"));
+        String url = System.getProperty("url");
+        //System.out.println("We got the port number: " + portNumber);
+        //String driverPath = System.getProperty("user.dir") + "/drivers/chromedriver";
+//        driverService = new ChromeDriverService.Builder()
+//               // .usingDriverExecutable(new File(driverPath))
+//                .usingPort(portNumber)
+//                .build();
 
-        System.out.println("GET URL: " + driverService.getUrl());
+       // System.out.println("GET URL: " + driverService.getUrl());
 
-        try {
-            driverService.start();
-        } catch (IOException e) {
-            e.printStackTrace();
+//        try {
+//            driverService.start();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+        try{
+            driver = new RemoteWebDriver(new URL(url), new ChromeOptions());
+        }catch (MalformedURLException ex) {
+            System.out.println("ERROR:  Please check your URI string...");
         }
 
-        driver = new RemoteWebDriver(driverService.getUrl(), new ChromeOptions());
         driver.manage().window().maximize();
     }
 
@@ -73,7 +104,7 @@ public class BrowserUtil {
         if (driver != null) {
             driver.close();
             driver.quit();
-            driverService.stop();
+           // driverService.stop();
         }
     }
 

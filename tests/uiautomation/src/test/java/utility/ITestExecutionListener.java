@@ -22,7 +22,6 @@ public class ITestExecutionListener implements ITestListener {
         spark = new ExtentSparkReporter(reportPath);
         spark.config().setTheme(Theme.STANDARD);
         extent.attachReporter(spark);
-
     }
 
     // when the Smoke test finishes
