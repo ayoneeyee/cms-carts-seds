@@ -179,7 +179,7 @@ pipeline {
       }
       steps {
         dir('tests/uiautomation') {
-          sh 'mvn test -Dport=3000'
+          sh 'mvn test -Dport=4444'
         }
       }
     }
