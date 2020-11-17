@@ -22,7 +22,6 @@ Pre-requisite:
 
 - Node.js 12.x or higher
 
-
 From the root directory folder (this folder), use node package manager `npm`:
 
 `npm install`
