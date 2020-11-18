@@ -1,5 +1,5 @@
 
-const login = require('./OY2-1494_Test_CARTS_Login');
+const login = require('../cases/OY2-1494_Test_CARTS_Login');
 module.exports = {
     tags : ['login', 'smoke'],
 

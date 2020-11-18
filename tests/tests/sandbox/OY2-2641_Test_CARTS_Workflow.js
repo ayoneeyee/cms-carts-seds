@@ -1,5 +1,5 @@
 
-const login = require('../OY2-1494_Test_CARTS_Login');
+const login = require('../cases/OY2-1494_Test_CARTS_Login');
 module.exports = {
     tags : ['login', 'smoke'],
 
@@ -13,9 +13,8 @@ module.exports = {
     },
 
     'Basic State Information Page' : function(browser) {
-        require('../OY2-2641_Test_CARTS_BasicStateInformation')["Basic State Information Page"](browser);
+        require('./OY2-2641_Test_CARTS_BasicStateInformation')["Basic State Information Page"](browser);
         const cartsPage = browser.page.cartsBasePage();
         cartsPage.submitSection().waitForElementPresent('body');
-        cartsPage.expect.element('@section').text.to.be.equals('')
     }
 };
