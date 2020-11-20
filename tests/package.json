@@ -1,5 +1,5 @@
 {
-  "name": "tests",
+  "name": "at-deploy",
   "version": "1.0.0",
   "description": "Automated Testing Framework using Nightwatch.js\r ## Table of Contents",
   "main": "nightwatch.js",
@@ -8,21 +8,28 @@
     "test": "tests"
   },
   "dependencies": {
-    "chromedriver": "^86.0.0",
-    "geckodriver": "^1.20.0",
     "nightwatch": "^1.5.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "selenium-server": "^3.141.59",
+    "chromedriver": "^87.0.0",
+    "geckodriver": "^1.21.0"
+  },
+  "unsafe-perm": true,
   "scripts": {
-    "chrome": "nightwatch -c conf/nightwatch.conf.js",
-    "chrome-win": "node nightwatch -c conf/nightwatch.conf.js",
-    "firefox": "nightwatch -c conf/nightwatch.conf.js -e firefox",
-    "firefox-win": "node nightwatch -c conf/nightwatch.conf.js -e firefox",
-    "test": "nightwatch -c conf/nightwatch.conf.js -e chrome, firefox",
-    "test-win": "node nightwatch -c conf/nightwatch.conf.js -e default, firefox",
-    "update": "npx npm-check-updates -u && npm install"
+    "start": "node nightwatch -c conf/nightwatch.conf.js -e chrome -t regression",
+    "start-firefox": "node nightwatch.js -c conf/nightwatch.conf.js -e firefox -t regression",
+    "cross-browser": "node nightwatch.js -c conf/nightwatch.conf.js -e chrome,firefox -t regression"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/collabra-glockett/at-deploy.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/collabra-glockett/at-deploy/issues"
+  },
+  "homepage": "https://github.com/collabra-glockett/at-deploy#readme"
 }

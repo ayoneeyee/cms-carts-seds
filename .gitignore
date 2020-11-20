@@ -147,3 +147,16 @@ state-files/
 !tests/*.md
 tests/*.xml
 tests/*.log
+.run
+!*.md
+tests/reports/*
+tests/reports/screenshots/*
+*.xml
+tests/aut_model/*
+scratch
+/node_modules/*
+/tests_output/*
+.infra
+node_modules/**
+testcafe_results
+

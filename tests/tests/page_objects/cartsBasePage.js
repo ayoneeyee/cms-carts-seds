@@ -1,21 +1,24 @@
 
 const baseCommands = {
-    jumpToSection : function (num) {
-        let link = (num === 3) ? "button[aria-controls='2020-03__subnav']" :
+    jumpToSection: function (num) {
+        let link = (num === 3) ? "[aria-controls='2020-03__subnav']" :
             "a[href='/sections/2020/0" + num + "']"
         return this.api.click(link);
     },
 
     submitCARTS: function (text) {
         let button = '//button[@type="button" and text()="' + text + '"]'
-        return this.api.click('xpath', button);
-    }
+        return this.api.client.click('xpath', button);
+    },
 
+    switchToNewWindow() {
+        const handles = this.api.windowHandles()
+        console.log(handles)
+    }
 }
 
-module.exports = {
-    url : 'https://mdctcartsdev.cms.gov/sections/2020/00?dev=dev-ak',
 
+module.exports = {
     elements: {
 
     },
@@ -24,7 +27,8 @@ module.exports = {
 
     props : {
         textField: function (num) {
-            return "input[id=textfield_" + num + "]";
+            const selector = "input[id=textfield_";
+            return selector.concat(num,"]");
         }
     },
 }

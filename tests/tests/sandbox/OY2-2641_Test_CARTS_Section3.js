@@ -1,7 +1,7 @@
 
 const login = require('../cases/OY2-1494_Test_CARTS_Login');
 module.exports = {
-    tags : ['login', 'smoke'],
+    '@tags' : ['smoke', 'regression'],
 
     before : function(browser) {
         login.before(browser);
@@ -12,8 +12,12 @@ module.exports = {
         login.after(browser);
     },
 
-    'Section 1: Program Fees and Policy Changes' : function(browser) {
-        const cartPage = browser.page.cartsBasePage();
+    'Navigate to Section 3: Eligibility, Enrollment, and Operations' : function(browser) {
+        const cartsPage = browser.page.cartsBasePage();
+        browser.pause(10000);                                                    // Waiting for unusual loading times
+        cartsPage.jumpToSection(3)
+            .expect.element('[aria-controls="2020-03__subnav"]')
+            .to.have.attribute('aria-expanded').equal('false');
 
-    }
+    },
 };
