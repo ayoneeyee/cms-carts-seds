@@ -1,11 +1,12 @@
 
 module.exports = {
-    tags : ['login', 'smoke'],
+    '@tags' : ['login', 'smoke'],
 
     before : function(browser) {
         console.log('Setting up...');
         const loginPage = browser.page.cartsLoginPage();
-        loginPage.navigate().waitForElementVisible('body');
+        loginPage.navigate()
+            .waitForElementPresent('body');
     },
 
     after : function(browser) {
@@ -13,16 +14,15 @@ module.exports = {
         browser.end();
     },
 
+    "Verify Title Page": function (browser) {
+        browser.verify.titleContains('CMS - IMPL - Sign In');
+
+    },
+
     'Login to CARTS Page' : function(browser) {
         const loginPage = browser.page.cartsLoginPage();
-        loginPage
-            .assert.titleContains('CMS - TEST - Sign In')
-            .setValue('@userField', 'TN_SEMAQM')
-            .setValue('@passField', 'Macpro@419')
-            .click('@termsConditions')
-            .assert.visible('@submitBtn')
-            .submitForm();
-
-        loginPage.expect.url().to.contain("app/UserHome").after(3000);
+        loginPage.login();
+        browser.expect.url().to.not.equal('https://test.idp.idm.cms.gov/');
+        browser.pause(5000);
     }
 };
