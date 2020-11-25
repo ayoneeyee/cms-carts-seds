@@ -26,25 +26,21 @@ From the root directory folder (this folder), use node package manager `npm`:
 
 `npm install`
    
-### Running Tests 
+### Running Tests (Commands)
 
-To run tests:
-    
-`node nightwatch -c conf/nightwatch.conf.js # runs all tests`
+To run tests(Must have all browsers if running locally):
 
-\*New Commands\*
-To run tests (by browser type):
+`npm test` or `npm run test`: Runs tests using Chrome (default)
+`npm run test-firefox` : Runs tests using Firefox
+`npm run test-cross-browser`: Run in all browsers in parallel (Chrome & Firefox at this time)
 
-For Chrome:
-    - Windows: `npm run chrome-win`
-    - Linux/Mac: `npm run chrome`
-    
-For Firefox:
-    - Windows: `npm run firefox-win`
-    - Linux/Mac: `npm run firefox-chrome`
+Coming soon:
+`npm run test-unit`: Run unit tests *In development*
+`npm run test-integration` : Run unit integration tests
+`npm run test-bugfix`: Runs tests related to a bug fix (by Sprint)
 
-To update packages: 
-    `npm run update`
+To update: 
+    `npm up`
 
 see [Running Tests in Nightwatch](https://nightwatchjs.org/guide/running-tests/nightwatch-runner.html)
 

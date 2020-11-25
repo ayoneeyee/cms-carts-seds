@@ -5,7 +5,7 @@ const Services ={}; loadServices();
 module.exports = {
     // An array of folders (excluding subfolders) where your tests are located;
     // if this is not specified, the test source must be passed as the second argument to the test runner.
-    src_folders: './tests/cases',
+    src_folders: ["./tests/cases", "./tests/unit"],
 
     // See https://nightwatchjs.org/guide/working-with-page-objects/
     page_objects_path: './tests/page_objects',
@@ -35,6 +35,7 @@ module.exports = {
                 on_error : true,
                 path : "../tests/reports/screenshots"
             },
+            exclude : "./tests/unit"
         },
 
         firefox: {
@@ -98,7 +99,7 @@ module.exports = {
             }
         },
 
-        'selenium.chrome': {
+        "selenium.chrome": {
             extends: 'selenium',
             desiredCapabilities: {
                 browserName: 'chrome',
@@ -109,7 +110,7 @@ module.exports = {
             }
         },
 
-        'selenium.firefox': {
+        "selenium.firefox": {
             extends: 'selenium',
             desiredCapabilities: {
                 browserName: 'firefox',
@@ -120,6 +121,11 @@ module.exports = {
             }
         },
 
+        "unit-tests" : {
+            unit_tests_mode : true,
+            filter: "./tests/unit",
+            exclude : "./tests/cases/",
+        },
     }
 };
 

@@ -8,18 +8,21 @@
     "test": "tests"
   },
   "dependencies": {
-    "nightwatch": "^1.5.1"
-  },
-  "devDependencies": {
-    "selenium-server": "^3.141.59",
+    "@cucumber/cucumber": "^7.0.0-rc.0",
     "chromedriver": "^87.0.0",
-    "geckodriver": "^1.21.0"
+    "geckodriver": "^1.21.0",
+    "nightwatch": "^1.5.1",
+    "selenium-server": "^3.141.59"
   },
+  "devDependencies": {},
   "unsafe-perm": true,
   "scripts": {
-    "start": "node nightwatch -c conf/nightwatch.conf.js -e chrome -t regression",
-    "start-firefox": "node nightwatch.js -c conf/nightwatch.conf.js -e firefox -t regression",
-    "cross-browser": "node nightwatch.js -c conf/nightwatch.conf.js -e chrome,firefox -t regression"
+    "test": "node nightwatch.js -c conf/nightwatch.conf.js -e chrome",
+    "test-firefox": "node nightwatch.js -c conf/nightwatch.conf.js -e firefox",
+    "test-cross-browser": "node nightwatch.js -c conf/nightwatch.conf.js -e chrome,firefox",
+    "test-unit": "node nightwatch.js -c conf/nightwatch.conf.js -e unit-tests",
+    "test-integration": "node nightwatch.js -c conf/nightwatch.conf.js -e chrome,firefox --tag integration",
+    "test-bugfix": "node nightwatch.js -c conf/nightwatch.conf.js -e chrome,firefox --tag bug-fix"
   },
   "repository": {
     "type": "git",

@@ -1,11 +1,15 @@
 
 module.exports = {
-    tags : ['login', 'smoke'],
+    '@tags' : ['login', 'smoke'],
 
     before : function(browser) {
         console.log('Setting up...');
         const loginPage = browser.page.cartsLoginPage();
-        loginPage.navigate().waitForElementVisible('body');
+
+        loginPage.navigate().waitForElementPresent('body');
+
+        browser.expect.url()
+            .to.be.equal('https://impl.idp.idm.cms.gov/');
     },
 
     after : function(browser) {
@@ -13,16 +17,19 @@ module.exports = {
         browser.end();
     },
 
-    'Login to CARTS Page' : function(browser) {
-        const loginPage = browser.page.cartsLoginPage();
-        loginPage
-            .assert.titleContains('CMS - TEST - Sign In')
-            .setValue('@userField', 'TN_SEMAQM')
-            .setValue('@passField', 'Macpro@419')
-            .click('@termsConditions')
-            .assert.visible('@submitBtn')
-            .submitForm();
+    'Login to CARTS' : function(browser) {
+        browser.verify.titleContains('CMS - IMPL - Sign In');
 
-        loginPage.expect.url().to.contain("app/UserHome").after(3000);
+        //Arrange
+        const loginPage = browser.page.cartsLoginPage();
+
+        //Act
+        loginPage.login();
+
+        //Assert
+        browser.expect.url()
+            .to.not.equal('https://impl.idp.idm.cms.gov/');
+        browser.expect.url()
+            .to.be.equal('https://mdctcartsval.cms.gov/')
     }
 };

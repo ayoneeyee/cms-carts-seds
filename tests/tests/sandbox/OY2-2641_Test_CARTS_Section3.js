@@ -14,9 +14,8 @@ module.exports = {
 
     'Navigate to Section 3: Eligibility, Enrollment, and Operations' : function(browser) {
         const cartsPage = browser.page.cartsBasePage();
-        browser.pause(10000);                                                    // Waiting for unusual loading times
-        cartsPage.jumpToSection(3)
-            .expect.element('[aria-controls="2020-03__subnav"]')
+        cartsPage.jumpToSection(3);
+        cartsPage.expect.element('[aria-controls="2020-03__subnav"]')
             .to.have.attribute('aria-expanded').equal('false');
 
     },

@@ -13,7 +13,7 @@ module.exports = {
     },
     "CARTS Workflow": function (browser) {
         const tests = {
-            basicInfo: require('./OY2-2641_Test_CARTS_BasicStateInformation'),
+            basicInfo: require('../cases/OY2-2641_Test_CARTS_BasicStateInformation'),
             section1: require('./OY2-2641_Test_CARTS_Section1'),
             section2 : require('./OY2-2641_Test_CARTS_Section2'),
             section3 : require('./OY2-2641_Test_CARTS_Section3'),

@@ -1,11 +1,10 @@
 
 const login = require('../cases/OY2-1494_Test_CARTS_Login');
 module.exports = {
-    tags : ['login', 'smoke'],
+    '@tags' : ['smoke', 'regression'],
 
     before : function(browser) {
         login.before(browser);
-        login["Login to CARTS Page"](browser);
     },
 
     after : function(browser) {
@@ -13,7 +12,7 @@ module.exports = {
     },
 
     'Certify and Submit Form' : function(browser) {
-        const cartsPage = browser.page.cartsBasePage();
-        cartsPage.submitCARTS('Done').waitForElementPresent('body');
+        browser.click("a[href='/sections/2020/certify-and-submit']").pause(1000);
+        browser.expect.url().to.equal('https://mdctcartsdev.cms.gov/sections/2020/certify-and-submit');
     }
 };
